@@ -22,14 +22,15 @@ input_data(istream& in){  //& тк нельз€ скопировать поток ввода   istream управл
 
     Input in2;
 
-    cerr << "¬ведите количество чисел: ";
+    bool prompt = true;
+    if (prompt) cerr << "¬ведите количество чисел: ";
     in >> in2.number_count;
 
 
 
     in2.numbers.resize(in2.number_count);
 
-    cerr << "¬ведите через пробел элементы массива: ";
+    if (prompt) cerr << "¬ведите через пробел элементы массива: ";
 
     vector<double> numbers(in2.number_count);
     for (size_t i = 0; i < in2.number_count; i++) {
@@ -37,7 +38,7 @@ input_data(istream& in){  //& тк нельз€ скопировать поток ввода   istream управл
     }
 
     size_t bin_count;
-    cerr << "¬ведите количество корзин: ";
+    if (prompt) cerr << "¬ведите количество корзин: ";
     in >> in2.bin_count;
 
     return in2;

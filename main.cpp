@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-
+#include <curl/curl.h>
 #include "histogram.h"
 #include "text.h"
 #include "svg.h"
@@ -37,7 +37,6 @@ input_data(istream& in){  //& тк нельз€ скопировать поток ввода   istream управл
         in >> in2.numbers[i];
     }
 
-    size_t bin_count;
     if (prompt) cerr << "¬ведите количество корзин: ";
     in >> in2.bin_count;
 
@@ -48,9 +47,11 @@ input_data(istream& in){  //& тк нельз€ скопировать поток ввода   istream управл
 int
 main(){
 
+    curl_global_init(CURL_GLOBAL_ALL);
+
     auto in = input_data(cin);
     auto bins = make_histogram(in.numbers, in.bin_count);
-    show_histogram_text(bins, in.number_count, in.bin_count);
+    show_histogram_svg(bins, in.number_count, in.bin_count);
 
     return 0;
 }

@@ -51,7 +51,7 @@ main(){
 
     auto in = input_data(cin);
     auto bins = make_histogram(in.numbers, in.bin_count);
-    show_histogram_svg(bins, in.number_count, in.bin_count);
+    show_histogram_text(bins, in.number_count, in.bin_count);
 
     return 0;
 }

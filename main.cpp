@@ -45,7 +45,15 @@ input_data(istream& in){  //& тк нельзя скопировать поток ввода   istream управл
 
 
 int
-main(){
+main(int argc, char* argv[]){
+
+    if (argc > 1){
+        cout << argc;
+        for (int i=0; i < argc; i++){
+            cout << "argv[" << i << "]=" <<argv[i];
+        }
+        return 0;
+    }
 
     curl_global_init(CURL_GLOBAL_ALL);
 

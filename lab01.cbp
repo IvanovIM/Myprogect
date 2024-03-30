@@ -13,11 +13,10 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
-					<Add option="-DCURL_STATICLIB" />
 					<Add directory="curl/include" />
 				</Compiler>
 				<Linker>
-					<Add library="libcurl.a" />
+					<Add library="libcurl.dll.a" />
 					<Add directory="curl/lib" />
 				</Linker>
 			</Target>
